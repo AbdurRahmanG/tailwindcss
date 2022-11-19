@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css">
+
+    <title>Notes | Tailwind CSS</title>
+</head>
+
+<body>
+    <h1>Notes related to Tailwind CSS</h1>
+    <h2>Commands to generate proper production development environment to use Tailwind CSS (Setting up Tailwind CSS)
+    </h2>
+    <ol>
+        <li>Create a project folder where you want to store your project.</li>
+        <li>Create an index file with .html like index.html</li>
+        <li>Create a style file with .css like style.css</li>
+        <li>Inside the style.css file mention these codes (These are the custom post css directive provided by the
+            Tailwind):
+            <pre>
+                    <code>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+                    </code>
+                </pre>
+        </li>
+        <li>
+            <p> Before installing npm packages you need to install <strong>Node.js</strong> on your system. then start
+                installing few
+                packages from npm for Tailwind CSS</p>
+            <p>Create package JSON file</p>
+            <pre>
+                <code>
+npm init -y
+                </code>
+            </pre>
+            <p>Get some more packages (we will put all in our dev dependencies)</p>
+            <p>Front-end build tool <strong>vite</strong>. It'll work nicely here, because vite is going to take
+                existing
+                index.html file as an entry point. It's going to run Tailwind through PostCSS for us and also give us a
+                <strong>dev</strong> server that updates every time we make changes.
+            </p>
+            <pre>
+                <code>
+npm install -D tailwindcss postcss autoprefixer vite
+                </code>
+            </pre>
+        </li>
+        <li>
+            <p>Now its time to edit package.json file's script there you will get <strong>"test": "echo \"Error: no test
+                    specified\" && exit 1"</strong> now just replace <strong>"test"</strong> with <strong>"dev"</strong>
+                and <strong>"echo \"Error: no test specified\" && exit 1"</strong>
+                with <strong>"vite"</strong>.</p>
+            <p>Now configure Tailwind with PostCSS</p>
+            <p>Generate two file with npx (-p for postcss config)</p>
+            <pre>
+                    <code>
+npx tailwindcss init -p
+                    </code>
+        </li>
+        <li>Now link your style.css or fileName.css file with your index.html or fileName.html <a
+                href="https://www.freewebtoolkit.com/how-to-display-code-snippets-in-html-with-color"
+                target="_blank">(Snippet generator tool)</a>
+                <pre>
+                        <code>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/styles.css&quot;&gt;
+                        </code>
+                    </pre>
+        </li>
+        <li>At last you need to edit tailwind.config.js there inside <strong>content: [""]</strong> mention <strong>content: ["*"]</strong> </li>
+    </ol>
+
+    <ul>
+        <h3>What we did here</h3>
+        <li>Generated own version of Tailwind with a css entry file</li>
+        <li>Then we setup our front-end tooling using <strong>vite</strong></li>
+        <li>We installed three other dependencies
+            <ul>
+                <li>tailwindcss</li>
+                <li>postcss</li>
+                <li>autoprefixer</li>
+            </ul>
+        </li>
+        <li>We created the <strong>dev</strong> script that runs the <strong>vite</strong> server</li>
+        <li>Then we generated default Tailwind config file then PostCSS config file</li>
+        <li>Then be able to work in our html file we added link of css file to our html file.</li>
+    </ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
